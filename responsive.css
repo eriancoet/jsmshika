@@ -1,0 +1,51 @@
+:root { --header-height: 80px; --topbar-height: 40px; }
+html { scroll-padding-top: calc(var(--header-height) + 16px); }
+body { overflow-x: clip; }
+section[id], #quote-section { scroll-margin-top: calc(var(--header-height) + 16px); }
+#main-header > div:first-child > div { gap: 12px; }
+#mobile-menu { position: absolute; top: 100%; left: 0; right: 0; max-height: calc(100svh - var(--header-height)); overflow-y: auto; box-shadow: 0 16px 24px rgb(7 30 32 / .16); }
+#mobile-menu-btn { min-width: 44px; min-height: 44px; }
+a:focus-visible, button:focus-visible { outline: 3px solid #10b981; outline-offset: 4px; }
+#main-header nav a[aria-current="location"] { color: #059669; }
+#hero > .relative { padding-top: 32px; padding-bottom: 32px; }
+#hero > .relative > .grid { min-height: calc(100svh - var(--header-height) - var(--topbar-height) - 64px); }
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #main-header nav { gap: 14px; margin-left: auto; }
+  #main-header nav > * { margin-left: 0; font-size: 12px; }
+  #main-header > div:first-child > div > .hidden.sm\:flex { display: none; }
+  #hero h1 { font-size: clamp(2.4rem, 4vw, 3.75rem); }
+}
+@media (min-width: 1024px) and (max-height: 850px) {
+  #hero > .relative { padding-top: 24px; padding-bottom: 24px; }
+  #hero > .relative > .grid { min-height: calc(100svh - var(--header-height) - var(--topbar-height) - 48px); gap: 32px; }
+  #hero h1 { font-size: clamp(2.2rem, 3.5vw, 3.3rem); }
+  #hero .lg\:col-span-7 > * + * { margin-top: 16px; }
+  #quote-section > div { padding: 20px 24px; }
+  #quote-section form > * + * { margin-top: 12px; }
+  #quote-section h2 + p { margin-bottom: 16px; }
+}
+@media (max-width: 1023px) {
+  #hero > .relative { padding-top: 0; padding-bottom: 0; }
+  #hero > .relative > .grid { gap: 0; min-height: 0; }
+  #hero .lg\:col-span-7 { min-height: calc(100svh - var(--header-height) - var(--topbar-height)); display: flex; flex-direction: column; justify-content: center; padding-block: 24px; }
+  #quote-section { min-height: calc(100svh - var(--header-height)); display: flex; align-items: center; padding-block: 28px; }
+  #quote-section > div { width: 100%; max-width: 560px; margin-inline: auto; }
+  #hero h1 { font-size: clamp(1.85rem, 6vw, 3.5rem); overflow-wrap: anywhere; }
+}
+@media (max-width: 639px) {
+  #hero .lg\:col-span-7 { gap: 16px; }
+  #hero .lg\:col-span-7 > * + * { margin-top: 0; }
+  #hero .lg\:col-span-7 > .inline-flex { align-self: flex-start; font-size: 10px; letter-spacing: .08em; }
+  #hero .lg\:col-span-7 > p { font-size: 14px; line-height: 1.6; }
+  #hero .lg\:col-span-7 > .flex { gap: 10px; }
+  #hero .lg\:col-span-7 > .flex > a { font-size: 12px; padding: 12px 14px; }
+  #hero .lg\:col-span-7 > .grid { padding-top: 16px; gap: 12px; font-size: 10px; }
+  #quote-section > div { padding: 22px 18px; }
+  #quote-section h2 { font-size: 21px; }
+  #quote-section form > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #quote-section input, #quote-section select, #quote-section textarea { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
